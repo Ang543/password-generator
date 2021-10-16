@@ -1,6 +1,5 @@
 // Assignment code here
-var lengthPrompt = function() {
-  var length = "";
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
