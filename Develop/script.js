@@ -1,12 +1,4 @@
 // Assignment code here
-var lowerCaseArray = [abcdefghijklmnopqrstuvwyz];
-
-var upperCaseArray = [ABCDEFGHIJKLMNOPQRSTUVWXYZ];
-
-var specialCharacter = [!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"];
-
-var numericCharacter = [0123456789];
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -22,41 +14,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-function generatePassword() {
-  var finalPassword = ""
-  // ask what password size they would like
-  var passwordSize = prompt("Select #8-128 to chosse length of password.");
-  passwordSize = parseInt(passwordSize);
-  if (passwordSize >= 8 && passwordSize <= 128) {
-    var isLowercase = confirm("Does this password include lowercase letters?");
-    var isUppercase = confirm("Does this password contain uppercase letter?");
-    var isSpecial = confirm("Does this password contain special characters?");
-    var isNumeric = confirm("Does this password include numeric charcters?");
-    if (isLowercase === false && isUppercase === false && isSpecial === false && isNumeric === false) {
-      alert("You must select at least one type of character.");
-      return "";
-    }
-    for (let i = 0; i < passwordSize && finalPassword.length < passwordSize; i++) {
-      if (isLowercase && finalPassword.length < passwordSize) {
-        var index = Math.floor(Math.random() * lowerCaseArray.length);
-        finalPassword = finalPassword + lowerCaseArray[index];
-      }
-      if (isUppercase && finalPassword.length < passwordSize) {
-        var index = Math.floor(Math.random() * upperCaseArray.length);
-        finalPassword = finalPassword + upperCaseArray[index];
-      }
-      if (isSpecial && finalPassword.length < passwordSize) {
-        var index = Math.floor(Math.random() * specialCharacter.length);
-        finalPassword = finalPassword + specialCharacter[index];
-      }
-      if (isNumeric && finalPassword.length < passwordSize) {
-        var index = Math.floor(Math.random() * numericCharacter.length);
-        finalPassword = finalPassword + numericCharacter[index];
-      }
-    }
-  }
-  else {
-    alert("Invalid. Try again.")
-  }
-  return finalPassword;
-};
